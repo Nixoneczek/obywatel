@@ -5,11 +5,11 @@ self.addEventListener("install", (event) => {
         "/",
         "/index.html",
         "/login.html",
-        "/zdj/bell.png",
-        "/zdj/dowojo.png",
-        "/zdj/prawojo.png",
-        "/zdj/orzelek.png",
-        "/zdj/dwd_layout.png",
+        "/bell.png",
+        "/dowojo.png",
+        "/prawojo.png",
+        "/orzelek.png",
+        "/dwd_layout.png",
       ]);
     })
   );
