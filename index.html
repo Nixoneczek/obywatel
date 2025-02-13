@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mObywatel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        header img {
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .title-container span {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .bell-icon {
+            margin-bottom: 5px;
+        }
+
+        .button-group button {
+            background-color: #add8e6;
+            color: #007bff;
+            font-size: 0.9em;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: none;
+        }
+
+        .button-group button:hover {
+            background-color: #87ceeb;
+            color: white;
+        }
+
+        /* Stylowanie dla przycisku "Wszystkie" */
+        .button-group-btn {
+            background-color: #add8e6;
+            color: #007bff;
+            font-size: 0.9em;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: none;
+        }
+
+        .button-group-btn:hover {
+            background-color: #87ceeb;
+            color: white;
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        .document-cards-wrapper {
+            overflow-y: hidden;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+        }
+
+        .document-carousel {
+            display: flex;
+            gap: 15px;
+        }
+
+        .document-card {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .document-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 25px;
+        }
+
+        .document-card span {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .document-view {
+            padding: 15px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .bottom-nav div {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .bottom-nav i {
+            font-size: 20px;
+        }
+
+        .active i {
+            color: #007bff;
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .service-card {
+            width: 100%;
+            height: 125px;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .service-card i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .service-card i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        /* Kolory dla ikon zgodnie z obrazkiem */
+        .icon-dark-blue {
+            color: #000080;
+        }
+
+        /* Granatowy */
+        .icon-green {
+            color: #008000;
+        }
+
+        /* Zielony */
+        .icon-forest-green {
+            color: #228B22;
+        }
+
+        /* Ciemnozielony */
+        .icon-blue {
+            color: #1E90FF;
+        }
+
+        /* Niebieski */
+        .icon-red {
+            color: #DC143C;
+        }
+
+        /* Czerwony */
+        .icon-turquoise {
+            color: #20B2AA;
+        }
+
+        /* Turkusowy */
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="title-container">
+            <img src="orzelek.png" alt="Orzełek">
+            <span>Dokumenty</span>
+        </div>
+        <div class="button-group">
+            <div class="bell-icon">
+                <img src="bell.png" alt="Dzwonek">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="alert('Dodaj dokument')">Dodaj</button>
+                <button onclick="alert('dokumenty')">Wszystkie</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Główny widok (dokuments) -->
+    <div id="mainView" class="container">
+        <div class="document-cards-wrapper">
+            <div class="document-carousel">
+                <div class="document-card" onclick="showView('dowodView')">
+                    <img src="dowojo.png" alt="Dowód osobisty">
+                    <span>Dowód osobisty</span>
+                </div>
+                <div class="document-card" onclick="showView('licenseView')">
+                    <img src="prawojo.png" alt="Prawo jazdy">
+                    <span>Prawo jazdy</span>
+                </div>
+            </div>
+        </div>
+        <div class="services-header">
+            <h3>Usługi</h3>
+            <button class="button-group-btn" onclick="showAllServices()">Wszystkie</button>
+        </div>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-gavel icon-dark-blue"></i>
+                <p>Punkty karne</p>
+            </div>
+            <div class="service-card"><i class="fas fa-car icon-green"></i>
+                <p>Historia pojazdu</p>
+            </div>
+            <div class="service-card"><i class="fas fa-tree icon-forest-green"></i>
+                <p>Naruszenie środowiskowe</p>
+            </div>
+            <div class="service-card"><i class="fas fa-wind icon-blue"></i>
+                <p>Jakość powietrza</p>
+            </div>
+            <div class="service-card"><i class="fas fa-bus icon-red"></i>
+                <p>Bilkom</p>
+            </div>
+            <div class="service-card"><i class="fas fa-notes-medical icon-turquoise"></i>
+                <p>eRecepta</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Widok Dowód Osobisty -->
+    <div id="dowodView" class="container hidden">
+        <h2>Dowód osobisty</h2>
+        <p>Informacje dotyczące dowodu osobistego...</p>
+    </div>
+
+    <!-- Widok Prawo Jazdy -->
+    <div id="licenseView" class="container hidden">
+        <h2>Prawo jazdy</h2>
+        <p>Informacje dotyczące prawa jazdy...</p>
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="showView('mainView')"><i class="fas fa-home"></i>
+            <p>Start</p>
+        </div>
+        <div class="nav-item" onclick="showView('documentsView')"><i class="fas fa-folder"></i>
+            <p>Dokumenty</p>
+        </div>
+        <div class="nav-item" onclick="showView('servicesView')"><i class="fas fa-cogs"></i>
+            <p>Usługi</p>
+        </div>
+    </div>
+
+    <script>
+    </body >
+</html >
