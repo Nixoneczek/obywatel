@@ -150,12 +150,15 @@
 <body>
 
     <div class="top-bar">
-        <div class="back">&larr; Wróć</div>
+        <a href="index.html">
+            <div class="back">&larr; Wróć</div>
+        </a>
         <div class="title">mDowód</div>
-        <div></div>
+        <div class="info"></div>
     </div>
 
-    <div class="time">Czas: 9:41:21 17.02.2024</div>
+    <div class="time" id="current-time">Czas: --:--:-- --.--.----</div>
+
 
     <div class="card">
         <div class="photo"></div>
@@ -171,16 +174,30 @@
         <div class="status"><i class="fas fa-check-circle"></i> Dokument ważny</div>
     </div>
 
-    <div class="btn"><span>Potwierdź swoje dane</span><i class="fas fa-chevron-right"></i></div>
-    <div class="btn"><span>Dane dokumentu</span><i class="fas fa-chevron-right"></i></div>
-    <div class="btn"><span>Twoje dodatkowe dane</span><i class="fas fa-chevron-down"></i></div>
-
-    <div class="update">
-        Ostatnia aktualizacja: <span class="date">17.02.2024</span>
-        <span class="update-button">Aktualizuj</span>
-    </div>
+    <div class="btn"><span><b>Potwierdź swoje dane</b></span><i class="fas fa-chevron-right"></i></div>
+    <div class="btn"><span><b>Dane dokumentu</b></span><i class="fas fa-chevron-right"></i></div>
+    <div class="btn"><span><b>Twoje dodatkowe dane</b></span><i class="fas fa-chevron-down"></i></div>
 
     <div class="delete"><i class="fas fa-trash"></i> Usuń dokument</div>
+    <script>
+        function updateCurrentTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // miesiące są od 0
+            const year = now.getFullYear();
+
+            const formatted = `Czas: ${hours}:${minutes}:${seconds} ${day}.${month}.${year}`;
+            document.getElementById('current-time').textContent = formatted;
+        }
+
+        // Zaktualizuj od razu
+        updateCurrentTime();
+        // Odświeżaj co sekundę
+        setInterval(updateCurrentTime, 1000);
+    </script>
 
 </body>
 
