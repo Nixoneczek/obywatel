@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="orzelek.png">
-        <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -261,7 +261,7 @@
             <div class="document-carousel">
                 <div class="document-card" onclick="window.location.href='dowod.html'">
                     <img src="dowojo.png" alt="Dowód osobisty">
-                    <span>Dowód osobisty</span>
+                    <span>mDowod</span>
                 </div>
                 <div class="document-card" onclick="window.location.href='prawo.html'">
                     <img src="prawojo.png" alt="Prawo jazdy">
@@ -306,14 +306,15 @@
             <p>Usługi</p>
         </div>
     </div>
-    
-    <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log("Service Worker zarejestrowany!"))
-      .catch((err) => console.log("Błąd SW:", err));
-  }
-</script>
 
-    </body >
-</html >
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker zarejestrowany!"))
+                .catch((err) => console.log("Błąd SW:", err));
+        }
+    </script>
+
+</body>
+
+</html>
