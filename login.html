@@ -175,6 +175,11 @@
                 greeting.textContent = "Dobry wieczór!";
             }
         });
+        // Przekierowanie po kliknięciu Zaloguj się
+        document.querySelector('.login-button').addEventListener('click', function (e) {
+            e.preventDefault(); // zapobiega domyślnej akcji formularza, jeśli jakaś jest
+            window.location.href = 'index.html'; // przekierowanie
+        });
 
     </script>
 </body>
