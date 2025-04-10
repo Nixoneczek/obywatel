@@ -3,8 +3,10 @@ self.addEventListener("install", (event) => {
     caches.open("mobywatel-cache").then((cache) => {
       return cache.addAll([
         "/",
-        "/index.html",
         "/login.html",
+        "/index.html",
+        "/dowod.html",
+        "/prawo.html",
         "/bell.png",
         "/dowojo.png",
         "/prawojo.png",
