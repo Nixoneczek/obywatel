@@ -3,89 +3,179 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>mObywatel - Logowanie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logowanie</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Ikony Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Czcionka systemowa i podstawowy styl -->
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5fafe;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
             height: 100vh;
         }
 
-        .login-container {
-            background: white;
+        .container {
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
         }
 
-        .login-container h2 {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
-        .input-group {
-            margin-bottom: 15px;
+        .logo img {
+            height: 40px;
         }
 
-        .input-group input {
+        .greeting {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subtext {
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .form-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-box label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input[type="password"] {
             width: 100%;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px 48px 12px 12px;
+            /* więcej miejsca na ikonkę */
             border: 1px solid #ccc;
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            /* to żeby padding nie rozwalał inputa */
         }
 
-        .button-group-btn {
-            background-color: #add8e6;
-            color: #007bff;
-            font-size: 0.9em;
-            padding: 10px;
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
             cursor: pointer;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            border: none;
-            width: 100%;
+            color: #777;
+            font-size: 18px;
         }
 
-        .button-group-btn:hover {
-            background-color: #87ceeb;
+        .forgot {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #0057b8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-button {
+            width: 100%;
+            background-color: #003366;
             color: white;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer img {
+            height: 25px;
+            margin-bottom: 5px;
+        }
+
+        .version {
+            color: #999;
+            font-size: 13px;
         }
     </style>
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Zaloguj się</h2>
-        <div class="input-group">
-            <input type="text" id="login" placeholder="Login">
+    <div class="container">
+        <div class="logo">
+            <img src="orzelek.png" alt="mObywatel">
+            <h2>mObywatel</h2>
         </div>
-        <div class="input-group">
-            <input type="password" id="password" placeholder="Hasło">
+        <div class="greeting" id="greeting-text">Witaj!</div>
+        <div class="subtext">Zaloguj się do aplikacji.</div>
+
+        <div class="form-box">
+            <label for="password">Hasło</label>
+            <div class="input-wrapper">
+                <input type="password" id="password" placeholder="••••••••••">
+                <i class="fas fa-eye eye-icon" onclick="togglePassword()"></i>
+            </div>
+            <a href="#" class="forgot">Nie pamiętasz hasła?</a>
+            <button class="login-button">Zaloguj się</button>
         </div>
-        <button class="button-group-btn" onclick="login()">Zaloguj</button>
     </div>
+
+    <div class="footer">
+        <img src="coi-logo.png" alt="COI i Ministerstwo Cyfryzacji"><br>
+        <div class="version">wersja 4.55.0 (15)</div>
+    </div>
+
     <script>
-        function login() {
-            var login = document.getElementById('login').value;
-            var password = document.getElementById('password').value;
-            if (login && password) {
-                window.location.href = 'index.html';
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon = document.querySelector('.eye-icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
             } else {
-                alert('Wpisz login i hasło!');
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             }
         }
+        // Zmienny tekst zależnie od godziny
+        window.addEventListener('DOMContentLoaded', () => {
+            const hour = new Date().getHours();
+            const greeting = document.getElementById('greeting-text');
+
+            if (hour >= 6 && hour < 19) {
+                greeting.textContent = "Dzień dobry!";
+            } else {
+                greeting.textContent = "Dobry wieczór!";
+            }
+        });
+
     </script>
 </body>
 
