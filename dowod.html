@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>mDowód</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f6fc;
+            padding: 20px 10px;
+            color: #1e1e1e;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .top-bar .back {
+            color: #007aff;
+            cursor: pointer;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .time {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin: 5px 0 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .card .photo {
+            float: left;
+            width: 100px;
+            height: 130px;
+            background: #ccc url('https://via.placeholder.com/100x130') no-repeat center/cover;
+            border-radius: 6px;
+        }
+
+        .card .info {
+            margin-left: 110px;
+        }
+
+        .info p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .info p b {
+            font-weight: 700;
+        }
+
+        .flag {
+            width: 40px;
+            margin: 10px 0;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .status i {
+            margin-right: 6px;
+        }
+
+        .btn {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .btn i {
+            color: #999;
+        }
+
+        .update {
+            font-size: 13px;
+            color: #555;
+            margin: 10px 0 5px 10px;
+        }
+
+        .update .date {
+            font-weight: bold;
+        }
+
+        .update-button {
+            background-color: #e5f0ff;
+            color: #007aff;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            margin-top: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            color: red;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="back">&larr; Wróć</div>
+        <div class="title">mDowód</div>
+        <div></div>
+    </div>
+
+    <div class="time">Czas: 9:41:21 17.02.2024</div>
+
+    <div class="card">
+        <div class="photo"></div>
+        <div class="info">
+            <p><b>MARTA</b><br><small>Imię (imiona)</small></p>
+            <p><b>KOWALSKA</b><br><small>Nazwisko</small></p>
+            <p><b>POLSKIE</b><br><small>Obywatelstwo</small></p>
+            <p><b>14.07.1991</b><br><small>Data urodzenia</small></p>
+            <p><b>91071427765</b><br><small>Numer PESEL</small></p>
+            <img class="flag" src="https://flagcdn.com/pl.svg" alt="Flaga Polski">
+        </div>
+        <div style="clear: both;"></div>
+        <div class="status"><i class="fas fa-check-circle"></i> Dokument ważny</div>
+    </div>
+
+    <div class="btn"><span>Potwierdź swoje dane</span><i class="fas fa-chevron-right"></i></div>
+    <div class="btn"><span>Dane dokumentu</span><i class="fas fa-chevron-right"></i></div>
+    <div class="btn"><span>Twoje dodatkowe dane</span><i class="fas fa-chevron-down"></i></div>
+
+    <div class="update">
+        Ostatnia aktualizacja: <span class="date">17.02.2024</span>
+        <span class="update-button">Aktualizuj</span>
+    </div>
+
+    <div class="delete"><i class="fas fa-trash"></i> Usuń dokument</div>
+
+</body>
+
+</html>
