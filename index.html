@@ -179,20 +179,30 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 15px;
+            gap: 30px 15px;
+            /* więcej miejsca w pionie */
+            text-align: center;
         }
 
         .service-card {
             width: 100%;
-            height: 125px;
+            aspect-ratio: 1 / 1;
             background: white;
             border-radius: 15px;
-            padding: 15px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            margin-top: 10px;
         }
+
+        .service-label {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+
 
         .service-card i {
             font-size: 24px;
@@ -274,24 +284,43 @@
             <button class="button-group-btn" onclick="showAllServices()">Wszystkie</button>
         </div>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-gavel icon-dark-blue"></i>
-                <p>Punkty karne</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-gavel icon-dark-blue"></i>
+                </div>
+                <p class="service-label">Punkty karne</p>
             </div>
-            <div class="service-card"><i class="fas fa-car icon-green"></i>
-                <p>Historia pojazdu</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-car icon-green"></i>
+                </div>
+                <p class="service-label">Historia pojazdu</p>
             </div>
-            <div class="service-card"><i class="fas fa-tree icon-forest-green"></i>
-                <p>Naruszenie środowiskowe</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-tree icon-forest-green"></i>
+                </div>
+                <p class="service-label">Naruszenie srodowiskowe</p>
             </div>
-            <div class="service-card"><i class="fas fa-wind icon-blue"></i>
-                <p>Jakość powietrza</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-wind icon-blue"></i>
+                </div>
+                <p class="service-label">Jakosc powietrza</p>
             </div>
-            <div class="service-card"><i class="fas fa-bus icon-red"></i>
-                <p>Bilkom</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-bus icon-red"></i>
+                </div>
+                <p class="service-label">blikom</p>
             </div>
-            <div class="service-card"><i class="fas fa-notes-medical icon-turquoise"></i>
-                <p>eRecepta</p>
+            <div>
+                <div class="service-card">
+                    <i class="fas fa-notes-medical icon-turquoise"></i>
+                </div>
+                <p class="service-label">eRecepta</p>
             </div>
+
 
         </div>
     </div>
