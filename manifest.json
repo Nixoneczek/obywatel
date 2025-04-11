@@ -7,12 +7,12 @@
   "theme_color": "#cde2f3",
   "icons": [
     {
-      "src": "orzelek.png",
+      "src": "apple-icon-180.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "orzelek.png",
+      "src": "apple-icon-180.png",
       "sizes": "512x512",
       "type": "image/png"
     }
