@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #f5fafe;
+            background: #cde2f3;
             display: flex;
             flex-direction: column;
             height: 100vh;
@@ -138,9 +138,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #f5fafe;
+            background: #cde2f3;
             padding: 10px 20px 15px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -152,19 +151,29 @@
         }
 
         .footer {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
             font-size: 12px;
             color: #666;
+            padding: 0 10px;
         }
 
-        .footer img {
+        .footer-left img {
             height: 25px;
-            margin-bottom: 3px;
+            margin-right: 8px;
         }
 
         .version {
             color: #999;
             font-size: 13px;
+        }
+
+
+        .logo img.Orel {
+            height: 40px;
+            width: auto;
         }
     </style>
 </head>
@@ -172,7 +181,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="orzelek.png" alt="mObywatel">
+            <img src="orzelek.png" alt="mObywatel" class="Orel">
             <h2>mObywatel</h2>
         </div>
         <div class="greeting" id="greeting-text">Witaj!</div>
@@ -195,9 +204,13 @@
     <div class="bottom-bar">
         <button class="login-button">Zaloguj się</button>
         <div class="footer">
-            <img src="coi-logo.png" alt="COI i Ministerstwo Cyfryzacji"><br>
+            <div class="footer-left">
+                <img src="coi.png" alt="COI" class="COI">
+                <img src="MC.png" alt="Ministerstwo Cyfryzacji" class="MC">
+            </div>
             <div class="version">wersja 4.55.0 (15)</div>
         </div>
+
     </div>
 
 
